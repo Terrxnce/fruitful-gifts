@@ -1,0 +1,25 @@
+{
+  "name": "fruitful-gifts",
+  "version": "1.0.0",
+  "description": "Fruitful Gifts - A blog for Spirit-led devotionals and reflections.",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "watch": "eleventy --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Terrxnce/fruitful-gifts.git"
+  },
+  "keywords": [],
+  "author": "Terrence Ndifor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Terrxnce/fruitful-gifts/issues"
+  },
+  "homepage": "https://github.com/Terrxnce/fruitful-gifts#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}

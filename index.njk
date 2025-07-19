@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fruitful Gifts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="/assets/uploads/favicon.png" type="image/png" sizes="512x512" />
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar" aria-label="Main Navigation">
+      <div class="nav-left">
+        <img src="/assets/uploads/favicon.png" alt="Fruitful Gifts Logo" class="logo" />
+        <h1 class="site-title">Fruitful Gifts</h1>
+      </div>
+      <div class="nav-right">
+        <a href="/" class="active">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN TWO-COLUMN LAYOUT -->
+  <main class="layout">
+
+    <!-- LEFT CONTENT -->
+    <div class="main-content">
+      <section class="hero">
+        <h2>Welcome to Fruitful Gifts</h2>
+        <p>A space for devotionals, reflections, and the fruits of a Spirit-led life.</p>
+        <p class="verse">“I am the vine; you are the branches.” — John 15:5</p>
+      </section>
+
+      {% if collections.blog.length %}
+      <section class="featured-post">
+        <h3>Latest Entry</h3>
+        {% set latest = collections.blog | reverse | first %}
+        <h4><a href="{{ latest.url }}">{{ latest.data.title }}</a></h4>
+        <p>{{ latest.templateContent | striptags | truncate(160, true) }}</p>
+        <a href="{{ latest.url }}" class="read-more">Read More →</a>
+      </section>
+      {% endif %}
+
+      <section class="blog-cards">
+        <h3>Recent Posts</h3>
+        <div class="card-grid">
+          {% for post in collections.blog | reverse | slice(0, 3) %}
+          <article class="card">
+            <h4><a href="{{ post.url }}">{{ post.data.title }}</a></h4>
+            <p>{{ post.templateContent | striptags | truncate(100, true) }}</p>
+            <a href="{{ post.url }}" class="read-more">Read →</a>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="cta">
+        <h3>Have Something to Share?</h3>
+        <p>If God has placed a message on your heart, we welcome testimonies, reflections, and devotionals from guest contributors.</p>
+        <a href="/contact.html" class="btn">Reach Out</a>
+      </section>
+    </div>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside class="personal-profile">
+      <img src="/assets/uploads/profile.jpg" alt="Profile Picture" class="profile-pic" />
+      <h3>Personal Profile</h3>
+      <p><strong>Name:</strong> Terry Ndifor</p>
+      <p><strong>Location:</strong> Galway, Ireland</p>
+      <p><strong>Calling:</strong> Building tools for Spirit-led living, writing, reflecting.</p>
+      <p><em>"Remain in Me and I in you." — John 15:4</em></p>
+      <a href="/about.html" class="btn">View Full Bio</a>
+    </aside>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Fruitful Gifts. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
